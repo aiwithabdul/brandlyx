@@ -2,7 +2,7 @@
 export { default as Container } from './Container';
 export { default as GlassButton } from './GlassButton';
 export { default as GlassCard } from './GlassCard';
-export { default as GlassInput } from './GlassInput';
+export { GlassInput, GlassTextarea } from './GlassInput';
 
 // Animation Components
 export { default as ParallaxSection } from './ParallaxSection';

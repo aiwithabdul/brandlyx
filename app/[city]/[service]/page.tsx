@@ -132,7 +132,7 @@ const services: Record<string, {
         ],
         features: [
             { title: 'Custom Themes', description: 'Unique designs, no bloated page builders.' },
-            { title: 'E-commerce', titleHigh: 'WooCommerce', description: 'Sell online with a high-conversion store.' },
+            { title: 'E-commerce', description: 'Sell online with a high-conversion WooCommerce store.' },
             { title: 'Speed Focus', description: 'Fast-loading sites that rank and convert.' },
         ],
         benefits: ['Full Ownership', 'Easy Content Edits', 'SEO-Ready', 'Scalable Platform'],

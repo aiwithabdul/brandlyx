@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, CSSProperties } from 'react';
 
 interface GlassCardProps {
   children: ReactNode;
@@ -6,7 +6,7 @@ interface GlassCardProps {
   hover?: boolean;
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
   onClick?: () => void;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 export default function GlassCard({

@@ -10,7 +10,7 @@ interface ButtonBaseProps {
     iconPosition?: 'left' | 'right';
 }
 
-interface ButtonAsButtonProps extends ButtonBaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonAsButtonProps extends ButtonBaseProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
     href?: never;
 }
 
