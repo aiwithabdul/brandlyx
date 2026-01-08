@@ -75,9 +75,9 @@ export default function Navbar() {
     return (
         <nav
             ref={navRef}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
                 ? 'py-3 glass'
-                : 'py-5 bg-transparent'
+                : 'py-5 nav-blur-initial'
                 }`}
         >
             <Container>
@@ -178,38 +178,46 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 {isMobileMenuOpen && (
-                    <div className="lg:hidden mt-4 glass-card-static rounded-xl p-4 animate-scale-in">
-                        {navigation.map((item) => (
-                            <div key={item.name}>
-                                <Link
-                                    href={item.href}
-                                    className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all ${pathname === item.href
-                                        ? 'text-cyan-400 bg-white/10'
-                                        : 'text-slate-300 hover:text-white hover:bg-white/5'
-                                        }`}
-                                >
-                                    {item.name}
-                                </Link>
-                                {item.dropdown && (
-                                    <div className="ml-4 border-l border-white/10 pl-4 mt-1">
-                                        {item.dropdown.map((subItem) => (
-                                            <Link
-                                                key={subItem.name}
-                                                href={subItem.href}
-                                                className={`block px-4 py-2 rounded-lg text-sm transition-all ${pathname === subItem.href
-                                                    ? 'text-cyan-400'
-                                                    : 'text-slate-400 hover:text-white'
-                                                    }`}
-                                            >
-                                                {subItem.name}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                        <div className="mt-4 pt-4 border-t border-white/10">
-                            <GlassButton href="/contact" variant="accent" size="sm" className="w-full">
+                    <div className="lg:hidden mt-4 glass-deep rounded-3xl p-6 animate-scale-in border border-white/10 shadow-2xl max-h-[80vh] overflow-y-auto">
+                        <div className="flex flex-col gap-2">
+                            {navigation.map((item) => (
+                                <div key={item.name} className="border-b border-white/5 last:border-0 pb-2 mb-2 last:mb-0 last:pb-0">
+                                    {item.dropdown ? (
+                                        <div className="py-2">
+                                            <div className="px-4 py-2 text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
+                                                {item.name}
+                                            </div>
+                                            <div className="grid grid-cols-1 gap-1">
+                                                {item.dropdown.map((subItem) => (
+                                                    <Link
+                                                        key={subItem.name}
+                                                        href={subItem.href}
+                                                        className={`block px-4 py-3 rounded-xl text-sm transition-all ${pathname === subItem.href
+                                                            ? 'text-cyan-400 bg-white/10'
+                                                            : 'text-slate-300 hover:text-white hover:bg-white/5'
+                                                            }`}
+                                                    >
+                                                        {subItem.name}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <Link
+                                            href={item.href}
+                                            className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all ${pathname === item.href
+                                                ? 'text-cyan-400 bg-white/10'
+                                                : 'text-slate-300 hover:text-white hover:bg-white/5'
+                                                }`}
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                        <div className="mt-6 pt-6 border-t border-white/10">
+                            <GlassButton href="/contact" variant="accent" size="lg" className="w-full">
                                 Get Started
                             </GlassButton>
                         </div>
